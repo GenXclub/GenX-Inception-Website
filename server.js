@@ -1,7 +1,10 @@
 const express=require('express')
 const expressLayouts=require('express-ejs-layouts')
+const dotenv= require('dotenv').config()
+const connectDB=require('./components/models/database')
 
-require('dotenv').config
+
+connectDB()
 
 const app=express()
 const port=process.env.PORT || 3000;
