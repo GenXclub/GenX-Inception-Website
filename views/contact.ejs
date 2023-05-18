@@ -1,0 +1,28 @@
+<div class="poro">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/boba.png" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/Mima.png" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="/images/kimo.png" alt="Image 3">
+        </div>
+    </div>
+</div>
+
+<h1>Hello</h1>
+
+<script>
+    var carouselItems = document.querySelectorAll('.carousel-item');
+    var currentIndex = 0;
+
+    function showNextItem() {
+        carouselItems[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        carouselItems[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextItem, 3000); 
+</script>

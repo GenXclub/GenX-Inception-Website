@@ -14,6 +14,7 @@ app.use(express.static('public'))
 app.use(expressLayouts)
 
 app.set('layout', './layouts/main')
+app.set('loginLayout', './loginLayout/login')
 app.set('view engine', 'ejs')
 
 const routes=require('./components/routes/matches.js')

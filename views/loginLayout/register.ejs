@@ -1,0 +1,26 @@
+<div class="cont">
+    <div class="login-cont">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <div class="inp">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" id="name" name="name" autocomplete="off" placeholder="Enter name" required>
+            </div>
+            <div class="inp">
+                <!-- <label for="username">Username:</label> -->
+                <input type="text" id="username" name="username" autocomplete="off" placeholder="Enter email / username"
+                    required>
+            </div>
+
+            <div class="inp">
+                <!-- <label for="password">Password:</label> -->
+                <input type="password" id="password" autocomplete="off" name="password" placeholder="Passcode" required>
+            </div>
+            <p>Haven an account? <span><a href="/login">Login</a></span>
+            </p>
+            <div>
+                <button class="btn-log" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
