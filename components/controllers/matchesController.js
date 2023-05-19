@@ -1,5 +1,6 @@
 
 const User = require('../models/usermodel');
+const bcrypt=require('bcrypt')
 
 //GET /
 //Homepage
@@ -37,11 +38,16 @@ exports.membersPage = async (req, res) => {
   
     try {
       // Find the user with the given username and password
-      const user = await User.findOne({ username, password });
+      const user = await User.findOne({ username});
   
       if (user) {
         // User found, redirect to a success page or perform further actions
+        if(await bcrypt.compare(password, user.password)){
         res.redirect('/');
+        }
+        else{
+          console.log('error', error);
+        }
       } else {
         // User not found or invalid credentials, render the login page with an error message
         console.log('invalid re baba')
@@ -65,8 +71,12 @@ exports.membersPage = async (req, res) => {
         // User with the same username already exists, render the registration page with an error message
         res.render('loginLayout/register', { title: 'GenX-Tournament - Register', layout: 'loginLayout/layout', error: 'Username already exists' });
       } else {
+        //hashing password
+
+        const hashedPassword=await bcrypt.hash(password, 10)
+        
         // Create a new user
-        const newUser = new User({ name,username, password });
+        const newUser = new User({ name,username, password: hashedPassword });
         await newUser.save();
   
         // User successfully registered, redirect to a success page or perform further actions
