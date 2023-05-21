@@ -1,16 +1,7 @@
-## GenX-Inception-Website
+# GenX-Inception-Website
+A valorant tournament hosting website built using express and mongo.
 
-# Required
-
-> Make a file `.env` inside enter the below
-```
-MONGO_URL=<enter-MONGO-DB-URL>
-JWT_SECRET=<enter-JWT-SECRET>
-```
-
-# How to execute
-
-> Use the below command to execute
-```
-npm start
-```
+user is being displayed 
+`bootstrap` added 
+CSS for the user display is broken
+=======
