@@ -1,21 +1,26 @@
-const jwtSecret = process.env.JWT_SECRET || 'your-secret-here';
+const jwt = require('jsonwebtoken');
 
+// Middleware to authenticate the JWT token
 const authenticateToken = (req, res, next) => {
-  // Get the JWT token from the request header
-  const token = req.headers['authorization'].split(' ')[1];
+  const token = req.cookies.token;
 
-  // Try to verify the token
-  try {
-    const decoded = jwt.verify(token, jwtSecret);
+  if (token) {
+    // Verify the token
+    jwt.verify(token, 'your-secret-key', (err, decodedToken) => {
+      if (err) {
+        // Token verification failed
+        res.redirect('/login'); // or handle the error in a different way
+      } else {
+        // Token is valid, extract the username from the decoded token
+        req.username = decodedToken.username;
 
-    // If the token is valid, set the user in the request context
-    req.user = decoded;
-
-    // Continue with the request
+        next();
+      }
+    });
+  } else {
+    // Token not found, user is not authenticated
+    // res.redirect('/login'); // or handle the authentication failure in a different way
     next();
-  } catch (error) {
-    // If the token is invalid, return an error
-    res.status(401).send('Unauthorized');
   }
 };
 
