@@ -475,12 +475,13 @@ a {
 } */
 .dropdown-item {
     margin-top: -2rem;
-    height: 3rem;
-    max-width: 100px;
+    height: 3.5rem;
+
+    background-color: transparent !important;
 }
 
 .dropmainu {
-    max-width: 100px;
+    max-width: 50px !important;
 }
 
 .dropdown-item:hover {
