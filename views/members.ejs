@@ -1,83 +1,35 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <div class="mainmemcont">
-    <div class="memcont">
-        <div class="smol smollft">
-            <div class="combo combolft">
-                <img src="https://gumlet.assettype.com/afkgaming%2F2022-09%2F8a597c56-09f9-43f1-bfa2-090f1faf7bb8%2F564326d7_radiant_chamber_guide_splash.jpg?compress=true&dpr=1&w=1200"
-                    alt="">
-                <h2>NOAH</h2>
-            </div>
-            <div class="text-overlay">
-                <div class="insidetext">
-                    <h2>NOAH</h2>
-                    <h6>Backend & DevOps | PartTime Gamer <br>
-                        This is the way </h6>
-                    <p>Kills : 6 <br> Headshot % : 88</p>
-
+    <% for (let player of players) { %>
+        <div class="memcont">
+            <div class="smol smollft">
+                <div class="combo combolft">
+                    <img src=<%=player.avatar %> alt="">
+                    <h2>
+                        <%= player.name %>
+                    </h2>
                 </div>
-
-
+                <div class="text-overlay">
+                    <div class="insidetext">
+                        <h2>
+                            <%= player.name %>
+                        </h2>
+                        <h6>
+                            <%= player.description %>
+                        </h6>
+                        <p>Tracker Score: <%= player["Tracker Score"] %> <br> Round Win%: <%= player["Round Win%"] %>
+                        </p>
+                        <p>KAST: <%= player.KAST %> <br> ACS: <%= player.ACS %>
+                        </p>
+                        <p>DDΔ/Round: <%= player["DDΔ/Round"] %> <br> WR: <%= player.WR %>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="smol smolrt">
-            <div class="combo combort">
-                <img src="https://cdn.shopify.com/s/files/1/0505/5912/3609/articles/unnamed_b9e5b6b2-4b9d-42ba-b70d-a3beeeeefbe8.jpg?v=1642506393"
-                    alt="">
-                <h2>MIMS</h2>
-            </div>
-            <div class="text-overlay">
-                <div class="insidetext">
-                    <h2>MIMS</h2>
-                    <h6>I am a Computer Science geek. Experience with Blockchain ,Full Stack Development and other JS /
-                        Python Projects.</h6>
-                    <p>Kills : 6 <br> Headshot % : 88</p>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-    <br>
-
-    <div class="memcont">
-        <div class="smol smollft">
-            <div class="combo combolft">
-                <img src="https://rare-gallery.com/mocahbig/1377219-viper-valorant-art-4k-pc-wallpaper.jpg" alt="">
-                <h2>CARRY</h2>
-            </div>
-            <div class="text-overlay">
-                <div class="insidetext">
-                    <h2>CARRY</h2>
-                    <h6>Backend & DevOps | PartTime Gamer <br>
-                        This is the way </h6>
-                    <p>Kills : 6 <br> Headshot % : 88</p>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="smol smolrt">
-            <div class="combo combort">
-                <img src="https://cdn.vox-cdn.com/thumbor/XVMC8jl0a8jqogvINmAI9bb9FMM=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/20012555/Reyna_smaller.jpg"
-                    alt="">
-                <h2>BULLSEYE</h2>
-            </div>
-            <div class="text-overlay">
-                <div class="insidetext">
-                    <h2>BULLSEYE</h2>
-                    <h6>I am a Computer Science geek. Experience with Blockchain ,Full Stack Development and other JS /
-                        Python Projects.</h6>
-                    <p>Kills : 6 <br> Headshot % : 88</p>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
+        <% } %>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
         $('.smolrt').hover(function () {

@@ -160,17 +160,116 @@ exports.homepage = async (req, res) => {
 
 };
 
-exports.membersPage = async (req, res) => {
-  // try {
-  //   const isLoggedIn = req.username ? true : false;
-  //   const username = req.username || 'Guest';
-  //   const members = ['John', 'Jane', 'Alice', 'Bob']; // Example data
-  //   res.render('members', { members, isLoggedIn, username });
-  // } catch (error) {
-  //   console.error('Error:', error);
-  //   res.render('error', { error });
-  // }
+// exports.membersPage = async (req, res) => {
+//   // try {
+//   //   const isLoggedIn = req.username ? true : false;
+//   //   const username = req.username || 'Guest';
+//   //   const members = ['John', 'Jane', 'Alice', 'Bob']; // Example data
+//   //   res.render('members', { members, isLoggedIn, username });
+//   // } catch (error) {
+//   //   console.error('Error:', error);
+//   //   res.render('error', { error });
+//   // }
 
+//   const token = req.cookies.token;
+
+//   if (token) {
+//     try {
+//       // Verify the token
+//       const decoded = jwt.verify(token, 'your-secret-key');
+//       const username = decoded.username;
+//       const members = ['John', 'Jane', 'Alice', 'Bob'];
+
+//       res.render('members', {
+//         username,
+//         isLoggedIn: true,
+//         members,
+//       });
+//     } catch (error) {
+//       console.error('Error:', error);
+//       res.render('error', { error });
+//     }
+//   } else {
+//     res.render('members', { isLoggedIn: false });
+//   }
+// };
+// Assuming you have already parsed the JSON data and stored it in jsonData variable
+const jsonData = {
+  "players": [
+    {
+      "name": "MB CARRY",
+      "Tracker Score": 182,
+      "Round Win%": 50.7,
+      "KAST": 63.4,
+      "ACS": 169.0,
+      "DDΔ/Round": -28,
+      "WR": 63.4,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "Noah",
+      "Tracker Score": 601,
+      "Round Win%": 54.0,
+      "KAST": 71.2,
+      "ACS": 211.8,
+      "DDΔ/Round": -0,
+      "WR": 54.0,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "Bullseye",
+      "Tracker Score": 297,
+      "Round Win%": 52.6,
+      "KAST": 62.3,
+      "ACS": 201.7,
+      "DDΔ/Round": -30,
+      "WR": 51.9,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "GenXmicro",
+      "Tracker Score": 978,
+      "Round Win%": 60.9,
+      "KAST": 78.1,
+      "ACS": 288.6,
+      "DDΔ/Round": 47,
+      "WR": 63.4,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "Jio",
+      "Tracker Score": 961,
+      "Round Win%": 60.0,
+      "KAST": 76.9,
+      "ACS": 272.8,
+      "DDΔ/Round": 41,
+      "WR": 60.0,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "MILF LOVER",
+      "Tracker Score": 974,
+      "Round Win%": 55.3,
+      "KAST": 78.7,
+      "ACS": 283.1,
+      "DDΔ/Round": 54,
+      "WR": 55.3,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    },
+    {
+      "name": "PUNISHER22",
+      "Tracker Score": 282,
+      "Round Win%": 55.3,
+      "KAST": 68.1,
+      "ACS": 155.9,
+      "DDΔ/Round": -40,
+      "WR": 55.3,
+      "avatar": "https://cdn.oneesports.gg/cdn-data/2022/12/Valorant_Chamber_Trailer.jpg"
+    }
+  ]
+};
+
+exports.membersPage = async (req, res) => {
   const token = req.cookies.token;
 
   if (token) {
@@ -178,18 +277,19 @@ exports.membersPage = async (req, res) => {
       // Verify the token
       const decoded = jwt.verify(token, 'your-secret-key');
       const username = decoded.username;
-      const members = ['John', 'Jane', 'Alice', 'Bob'];
 
+      // Pass the JSON data to the EJS template
       res.render('members', {
         username,
         isLoggedIn: true,
-        members,
+        players: jsonData.players,
       });
     } catch (error) {
       console.error('Error:', error);
       res.render('error', { error });
     }
   } else {
+    // If there's no token, render the page with isLoggedIn set to false
     res.render('members', { isLoggedIn: false });
   }
 };

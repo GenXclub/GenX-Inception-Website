@@ -1,0 +1,56 @@
+{
+    "matches": [
+        {
+            "event": "Split",
+            "final": "GenX Premier BERSERKxBANDITS 13 5",
+            "atk": 8,
+            "def": 1,
+            "player_performance": {
+                "MB CARRY": "7/12/3",
+                "GenXmicro": "11/11/11",
+                "Noah": "14/10/3",
+                "Bullseye": "22/10/8",
+                "Jio": "24/11/4"
+            }
+        },
+        {
+            "event": "Split",
+            "final": "GenX Premier SNS Val 13 10",
+            "atk": 7,
+            "def": 5,
+            "player_performance": {
+                "MB CARRY": "6/17/7",
+                "GenXmicro": "12/18/9",
+                "Noah": "31/16/2",
+                "Bullseye": "25/16/6",
+                "Jio": "20/17/4"
+            }
+        },
+        {
+            "event": "Bind",
+            "final": "GenX Premier TEAM ACERS 13 11",
+            "atk": 5,
+            "def": 4,
+            "player_performance": {
+                "MB CARRY": "14/20/5",
+                "PUNISHER22": "13/17/4",
+                "Noah": "18/18/7",
+                "MILF LOVER": "13/19/9",
+                "Jio": "23/17/4"
+            }
+        },
+        {
+            "event": "Bind",
+            "final": "GenX Premier EREN NEAGERS 13 10",
+            "atk": 7,
+            "def": 5,
+            "player_performance": {
+                "GenXmicro": "22/16/8",
+                "PUNISHER22": "13/18/7",
+                "Noah": "28/16/7",
+                "MILF LOVER": "8/18/10",
+                "Bullseye": "20/15/11"
+            }
+        }
+    ]
+}
