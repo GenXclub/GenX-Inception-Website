@@ -290,7 +290,7 @@ exports.membersPage = async (req, res) => {
     }
   } else {
     // If there's no token, render the page with isLoggedIn set to false
-    res.render('members', { isLoggedIn: false });
+    res.render('members', { isLoggedIn: false, players: jsonData.players, });
   }
 };
 
